@@ -14,4 +14,6 @@ def quicksort(arr):
 mas = [random.randint(-100, 100) for i in range(200)]
 print(quicksort(mas))
 
-# O(n * log(n))
+# O(n^2) - worst
+# O(n * log(n)) - average
+# O(n) - the best
