@@ -1,7 +1,7 @@
 import random
 
 
-def FindSmallest(arr):
+def find_smallest(arr):
     smallest = arr[0]
     smallest_index = 0
     for i in range(1, len(arr)):
@@ -11,16 +11,16 @@ def FindSmallest(arr):
     return smallest_index
 
 
-def SelectionSort(arr):
+def selection_sort(arr):
     new_arr = []
     for i in range(len(arr)):
-        smallest = FindSmallest(arr)
+        smallest = find_smallest(arr)
         new_arr.append(arr.pop(smallest))
     return new_arr
 
 
 mas = [random.randint(0, 150) for i in range(150)]
-print(SelectionSort(mas))
+print(selection_sort(mas))
 
 
 # O(n^2)

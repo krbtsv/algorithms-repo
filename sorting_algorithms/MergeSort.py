@@ -8,6 +8,7 @@ def merge_list(a, b):
 
     i = 0
     j = 0
+
     while i < n and j < m:
         if a[i] <= b[j]:
             c.append(a[i])
@@ -17,23 +18,23 @@ def merge_list(a, b):
             j += 1
 
     c += a[i:] + b[j:]
+
     return c
 
 
-def split_and_merge_list(a):
-    n1 = len(a) // 2
-    a1 = a[:n1]
-    a2 = a[n1:]
+def split_and_merge_list(arr):
+    if len(arr) == 1:
+        return arr
 
-    if len(a1) > 1:
-        a1 = split_and_merge_list(a1)
-    if len(a2) > 1:
-        a2 = split_and_merge_list(a2)
+    middle = len(arr) // 2
 
-    return merge_list(a1, a2)
+    left = split_and_merge_list(arr[:middle])
+    right = split_and_merge_list(arr[middle:])
+
+    return merge_list(left, right)
 
 
-mas = [random.randint(-50, 50) for i in range(100)]
+mas = [random.randint(-50, 500) for i in range(100)]
 print(split_and_merge_list(mas))
 
 # O(n * log(n))

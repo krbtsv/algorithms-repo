@@ -1,18 +1,18 @@
-from random import randint
+import random
 import time
 
 
-class Binary_Tree:
+class BinaryTree:
     def __init__(self, key):
         self.key = key
         self.right = None
         self.left = None
 
     def __str__(self):
-        return f'Значение в данном месте: {self.value}'
+        return f'Значение в данном месте: {self.key}'
 
 
-def insert_tree(root, node):  # Вставка узла в дерево
+def insert_node(root, node):  # Вставка узла в дерево
     if root is None:
         root = node
     else:
@@ -20,12 +20,12 @@ def insert_tree(root, node):  # Вставка узла в дерево
             if root.left is None:
                 root.left = node
             else:
-                insert_tree(root.left, node)
+                insert_node(root.left, node)
         elif root.key < node.key:
             if root.right is None:
                 root.right = node
             else:
-                insert_tree(root.right, node)
+                insert_node(root.right, node)
 
 
 def sort_max(root):
@@ -56,36 +56,22 @@ def search_max(root):
         return search_max(root.right)
 
 
-# tree = Binary_Tree(8)
-# insert_tree(tree, Binary_Tree(3))
-# insert_tree(tree, Binary_Tree(1))
-# insert_tree(tree, Binary_Tree(6))
-# insert_tree(tree, Binary_Tree(10))
-# insert_tree(tree, Binary_Tree(13))
-# insert_tree(tree, Binary_Tree(4))
-# insert_tree(tree, Binary_Tree(7))
-# insert_tree(tree, Binary_Tree(14))
-
-
-tree = Binary_Tree(38)
-
+Node = BinaryTree(8)
 start = time.time()
-for i in range(100000):
-    insert_tree(tree, Binary_Tree(randint(1, 101)))
-sort_max(tree)
+for i in range(10000):
+    insert_node(Node, BinaryTree(random.randint(-30, 1500)))
+sort_max(Node)
 end = time.time()
-result1 = end - start
+binary_sort_result = end - start
 
 start = time.time()
-gen = (randint(1, 101) for _ in range(100000))
-mas = [*gen]
-mas.sort()
-# for i in range(100000):
-#     mas.append(randint(1,101))
-# mas.sort()
-for el in mas:
+gen = (random.randint(-30, 1500) for _ in range(10000))
+arr = [*gen]
+arr.sort()
+for el in arr:
     print(el)
 end = time.time()
-result2 = end - start
+built_in_sort_result = end - start
 
-print(f'Binary Sort execution time is:{result1:9.5f}\nBuilt in sort() method execution time is:{result2:9.5f}')
+print("Binary sort execution time is:{arg1:9.5f}\nBuilt in sort() method execution time is:{arg2:9.5f}".format(
+    arg1=binary_sort_result, arg2=built_in_sort_result))
