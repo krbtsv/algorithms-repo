@@ -1,2 +1,2 @@
-# Algorithm_repo
+# Algorithms  :neckbeard:
 Репозиторий предназначен для практики с алгоритмами
