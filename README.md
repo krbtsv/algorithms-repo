@@ -1,2 +1,2 @@
 # Algorithms  :neckbeard:
-Репозиторий предназначен для практики с алгоритмами
+Practice with data structures and algorithms in Python 
